@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      nav {
+        background-color: #ccc;
+        width: 150px;
+        position: fixed;
+      }
+      nav li {
+        line-height: 40px;
+        text-align: center;
+      }
+      div section {
+        height: 100vh;
+      }
+      div section:nth-child(1) {
+        background-color: red;
+      }
+      div section:nth-child(2) {
+        background-color: green;
+      }
+      div section:nth-child(3) {
+        background-color: blue;
+      }
+      div section:nth-child(4) {
+        background-color: yellow;
+      }
+    </style>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" >
+    
+    $(function(){
+      var $nav=$('nav'),
+      $navUl=$nav.find('ul'),
+      $navLi=$navUl.find('li'),
+      $section=$('section'),
+      _index=0,
+      _scr=0
+
+      $navLi.click(function(e) {
+        e.preventDefault();
+        _index=$(this).index()
+        _scr=$section.eq(_index).offset().top;
+        $('html,Body').stop().animate({
+          scrollTop:_scr
+        })
+      });
+
+    })
+    
+    </script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">網站建置</a></li>
+      <li><a href="#">廣告素材</a></li>
+      <li><a href="#">數位刊物</a></li>
+      <li><a href="#">聯絡思潮</a></li>
+    </ul>
+  </nav>
+  <div>
+    <section>1</section>
+    <section>2</section>
+    <section>3</section>
+    <section>4</section>
+  </div>
+</body>
+</html>
