@@ -13,6 +13,7 @@
         background-color: #ccc;
         width: 150px;
         position: fixed;
+        padding: 30px;
       }
       nav li {
         line-height: 40px;
@@ -44,6 +45,17 @@
       $section=$('section'),
       _index=0,
       _scr=0
+
+      $nav.mouseenter(function(){
+        $(this).css({
+          backgroundColor:'#aaa'
+        });
+        console.log('xx')
+      })
+
+
+
+
 
       $navLi.click(function(e) {
         e.preventDefault();
